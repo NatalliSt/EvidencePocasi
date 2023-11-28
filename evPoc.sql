@@ -41,7 +41,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Data`
 -- -----------------------------------------------------
 
-  drop table if exists dataPocasi;
+ -- drop table if exists dataPocasi;
 
 CREATE TABLE IF NOT EXISTS dataPocasi (
 	data_id INT NOT NULL auto_increment,
