@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidence počasí</title>
+    <link rel="stylesheet" href="graphs.css">
+    
+
+</head>
+<body>
+    
+    
+    <header>
+        <div class="Logo">
+            <img src="Pictures/logoPocasi.png" class="image">
+            <div class="logo">EVIDENCE POČASÍ</div>
+        </div>
+
+        <nav class="navBar">
+            <ul class="navMenu">
+                <li class="navItem">
+                    <a href="home.html" class="navLink">Domů</a>
+                </li>
+                <li class="navItem">
+                    <a href="today.html" class="navLink">Dnes</a>
+                </li>
+                <li class="navItem">
+                    <a href="yesterday.html" class="navLink">Včera</a>
+                </li>
+                <li class="navItem">
+                    <a href="week.html" class="navLink">Týden</a>
+                </li>
+                <li class="navItem">
+                    <a href="month.html" class="active">Měsíc</a>
+                </li>
+                <li class="navItem">
+                    <a href="" class="navLink">Odhlásit se</a>
+                </li>
+            
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+   
+    <div id="gridContainer">
+        <div class="grid" id="tempIn">Teplota uvnitř</div>
+        <div class="grid" id="tempOut">Teplota venku</div>
+        <div class="grid" id="pressure">Tlak</div>
+        <div class="grid" id="humidity">Vlhkost</div>
+        <div class="grid" id="wind">Vítr</div>
+        <div class="grid" id="rainfall">Srážky</div>
+    </div>
+
+<script src="EvidencePocasi.js"></script>
+</body>
+</html>
