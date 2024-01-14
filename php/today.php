@@ -10,8 +10,8 @@ require "variables.php";
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 
-/*
-    if(<?/*php echo $row_today; ?> == null) {
+
+//    if(<?/*php echo $row_today; ?> == null) {
         alert("Nejsou k dispozici žádná data.");
         window.location.href='home.php';
     } else {  */
