@@ -10,11 +10,6 @@ require "variables.php";
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 
-
-//    if(<?/*php echo $row_today; ?> == null) {
-        alert("Nejsou k dispozici žádná data.");
-        window.location.href='home.php';
-    } else {  */
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawInChart);
     google.charts.setOnLoadCallback(drawOutChart);
@@ -22,7 +17,6 @@ require "variables.php";
     google.charts.setOnLoadCallback(drawHumChart);
     google.charts.setOnLoadCallback(drawWindChart);
     google.charts.setOnLoadCallback(drawRainChart);
- //}
 
     function drawInChart() {
         var in_data = google.visualization.arrayToDataTable([
