@@ -1,0 +1,161 @@
+@font-face {
+    font-family: 'PoiretOne';
+    src: url(../fonts/Poiret_One/PoiretOne-Regular.ttf) format('truetype');
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'PoiretOne', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: grey;
+}
+
+/* 
+    hlavička - menu
+*/
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px 50px;
+    z-index: 100;
+    box-shadow: 0px 5px 10px rgb(40, 40, 40);
+}
+.Logo{
+    display: flex;
+}
+
+.logo {
+    margin-top: 20px;
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+}
+/*
+.logo a {
+    color: white;
+    border: 0;
+    box-shadow: 0 0 0;
+}
+*/
+
+.image {
+    height: 100px;
+    position: relative;
+}
+
+.navBar {
+    visibility: hidden;
+}
+
+.navMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    position: absolute;
+    /* background: transparent;
+    backdrop-filter: blur(50px); */
+    /* border: 2px solid darkgray; */
+    background-color: black;
+    border: 1px 0 solid white;
+    width: 30%;
+    height: 75vh;
+    top: 100px;
+    right: 0;
+    z-index: 100;
+    box-shadow: -5px 10px 20px rgb(40, 40, 40);
+}
+
+.navItem {
+    margin: 20px;
+}
+
+.navItem a {
+    display: block;
+    color: white;
+    text-transform: uppercase;
+    font-size: 30px;
+    padding: 10px 10px;
+     /* transition: 0.5px; */
+    margin: 0 10px;
+}
+
+.navItem a.active, a:hover {
+    border: 1px solid white;
+    box-shadow: 1px 1px 10px white;
+     /* transition: 0.5s; */
+}
+
+.bar {
+    display: block;
+    width: 50px;
+    height: 5px;
+    margin: 10px auto;
+    /* transition: all 0.2s ease-in-out; */
+    background-color: white;
+}
+
+ .hamburger {
+    display: block;
+}
+
+
+/*
+    obsah - grafy - dnes
+*/
+
+#gridContainer {
+    position: absolute;
+    top: 100px;
+    display: grid;
+    margin: 20px;
+    gap: 20px;
+
+
+}
+
+.grid {
+    background-color: black;
+    margin: 5px;
+    color: white;
+    font-weight: 500;
+    height: 60vh;
+    width: 96vw;
+    box-shadow: 5px 5px 15px rgb(40, 40, 40);
+    text-align: center;
+}
+
+#title {
+    margin-top: 1%;
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+@media only screen and (max-height: 750px) {
+    .navMenu {
+        overflow: auto;
+    }
+    .navItem a {
+        font-size: 20px;
+    }
+}
+
+.charts {
+    width: 96%;
+    height: 80%;
+    margin: 2%;
+    margin-top: 1%;
+}
