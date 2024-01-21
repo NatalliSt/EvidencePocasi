@@ -1,8 +1,8 @@
 <?php
 
-require "session.php";
-require "connection.php";
-require "variables.php";
+require_once "session.php";
+require_once "connection.php";
+require_once "variables.php";
 
 ?>
 
@@ -105,7 +105,10 @@ require "variables.php";
             $cur_year = date('Y');
             $cur_month = date('m');
             $cur_week = date('W'); 
-            $cur_day = date('d');
+            $cur_day = date('d'); /* <?php
+            setlocale(LC_TIME, 'cs_CZ.utf8'); // Nastavte češtinu pro lokalizaci
+            echo strftime('%a', time()); // Vypsání zkráceného názvu dne v týdnu
+            ?> */
 
             $cur_hour = date('H');
             $cur_min = date('i');
@@ -138,9 +141,11 @@ require "variables.php";
         <div class="grid" id="tempIn">
             <p id='title'>Teplota uvnitř:</p>
             <?php
-                if ($in_row) {
+                if ($in_row > 0) {
                     echo "<p id='content'>" . $in . " ˚C </p> " . BR;
                     echo "<p id='time'>" . $time ."</p>";
+                } else {
+                    echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
             ?>
         </div>
@@ -151,6 +156,8 @@ require "variables.php";
                 if ($out_row) {
                     echo "<p id='content'>" . $out .  " ˚C </p>" . BR;
                     echo "<p id='time'>" . $time ."</p>";
+                } else {
+                    echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
             ?>
         </div>
@@ -161,6 +168,8 @@ require "variables.php";
                 if ($press_row) {
                     echo "<p id='content'>" . $press . " hPa <p>" . BR;  
                     echo "<p id='time'>" . $time ."</p>";
+                } else {
+                    echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
             ?>
         </div>
@@ -171,6 +180,8 @@ require "variables.php";
                 if ($humid_row) {
                     echo "<p id='content'>" . $humid . " % </p>" . BR;  
                     echo "<p id='time'>" . $time ."</p>";
+                } else {
+                    echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
             ?>
         </div>
@@ -181,6 +192,8 @@ require "variables.php";
                 if ($wind_row) {
                     echo "<p id='content'>" . $wind . " m/s </p>" . BR; 
                     echo "<p id='time'>" . $time ."</p>"; 
+                } else {
+                    echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
             ?>
         </div>
@@ -191,6 +204,8 @@ require "variables.php";
                 if ($rain_row) {
                     echo "<p id='content'>". $rain. " mm/h </p>" . BR;
                     echo "<p id='time'>" . $time ."</p>";
+                } else {
+                    echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
             ?>
         </div>
