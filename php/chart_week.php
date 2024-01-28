@@ -1,4 +1,8 @@
+<?php
+require_once "session.php";
+require "week_calendar.php";
 
+?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -12,7 +16,7 @@
 
     function drawInChart() {
         <?php
-        $in_week_sql = "select cur_date, temp_in from data_ep where users_id = '$users_id' and cur_week = WEEKOFYEAR(current_date());";
+        $in_week_sql = "select cur_date, temp_in from data_ep where users_id = '$users_id' and cur_week = $week and cur_year = $year;";
         $in_week_qry = mysqli_query($con, $in_week_sql);
 
         // Check if there is data available
@@ -57,7 +61,7 @@
 
     function drawOutChart() {
         <?php
-        $out_week_sql = "select cur_date, temp_out from data_ep where users_id = '$users_id' and cur_week = WEEKOFYEAR(current_date());";
+        $out_week_sql = "select cur_date, temp_out from data_ep where users_id = '$users_id' and cur_week = $week and cur_year = $year;";
         $out_week_qry = mysqli_query($con, $out_week_sql);
         // Check if there is data available
         if (mysqli_num_rows($out_week_qry) > 0) {
@@ -99,7 +103,7 @@
 
          function drawPressChart() {
             <?php
-            $press_week_sql = "select cur_date, pressure from data_ep where users_id = '$users_id' and cur_week = WEEKOFYEAR(current_date());";
+            $press_week_sql = "select cur_date, pressure from data_ep where users_id = '$users_id' and cur_week = $week and cur_year = $year;";
             $press_week_qry = mysqli_query($con, $press_week_sql);
             // Check if there is data available
             if (mysqli_num_rows($press_week_qry) > 0) {
@@ -142,7 +146,7 @@
 
         function drawHumChart() {
             <?php
-            $hum_week_sql = "select cur_date, humidity from data_ep where users_id = '$users_id' and cur_week = WEEKOFYEAR(current_date());";
+            $hum_week_sql = "select cur_date, humidity from data_ep where users_id = '$users_id' and cur_week =  $week and cur_year = $year;";
             $hum_week_qry = mysqli_query($con, $hum_week_sql);
             // Check if there is data available
             if (mysqli_num_rows($hum_week_qry) > 0) {
@@ -184,7 +188,7 @@
         
         function drawWindChart() {
         <?php
-            $wind_week_sql = "select cur_date, wind from data_ep where users_id = '$users_id' and cur_week = WEEKOFYEAR(current_date());";
+            $wind_week_sql = "select cur_date, wind from data_ep where users_id = '$users_id' and cur_week =  $week and cur_year = $year;";
             $wind_week_qry = mysqli_query($con, $wind_week_sql);
             // Check if there is data available
             if (mysqli_num_rows($wind_week_qry) > 0) {
@@ -228,7 +232,7 @@
 
         function drawRainChart() {
             <?php
-            $rain_week_sql = "select cur_date, rainfall from data_ep where users_id = '$users_id' and cur_week = WEEKOFYEAR(current_date());";
+            $rain_week_sql = "select cur_date, rainfall from data_ep where users_id = '$users_id' and cur_week =  $week and cur_year = $year;";
             $rain_week_qry = mysqli_query($con, $rain_week_sql);
             // Check if there is data available
             if (mysqli_num_rows($rain_week_qry) > 0) {
