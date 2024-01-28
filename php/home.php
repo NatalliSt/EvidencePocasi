@@ -32,11 +32,11 @@ require_once "variables.php";
                 <li class="navItem">
                     <a href="today.php" class="navLink">Dnes</a>
                 </li>
-                
+                <!--
                 <li class="navItem">
                     <a href="yesterday.php" class="navLink">Včera</a>
                 </li>
-                
+                -->
                 <li class="navItem">
                     <a href="week.php" class="navLink">Týden</a>
                 </li>
@@ -104,8 +104,9 @@ require_once "variables.php";
 
             $cur_year = date('Y');
             $cur_month = date('m');
-            $cur_week = date('W'); 
-            $cur_day = date('d'); /* <?php
+            $cur_week = date('W'); // vrátí číslo týdne v roce
+            $cur_day = date('z')+1; // vrátí číslo dne v roce (1-365/366)
+             /* <?php
             setlocale(LC_TIME, 'cs_CZ.utf8'); // Nastavte češtinu pro lokalizaci
             echo strftime('%a', time()); // Vypsání zkráceného názvu dne v týdnu
             ?> */
