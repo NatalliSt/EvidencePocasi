@@ -57,6 +57,12 @@ require "chart_today.php";
             <span class="bar"></span>
         </div>
     </header>
+    
+    <form action="" method="post" class="calendar">
+    <input type="submit" name="prev" value="&lt">
+    <input type="submit" name="today" value="Dnes">
+    <input type="submit" name="next" value="&gt">
+</form>
      
     <div id="gridContainer">
         <div class="grid">
@@ -88,5 +94,6 @@ require "chart_today.php";
     </div>
 
 <script src="../javaScript/graphs.js"></script>
+<!-- <script src="../javaScript/today_calendar.js"></script> -->
 </body>
 </html>
