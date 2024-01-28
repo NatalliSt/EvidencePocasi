@@ -57,6 +57,11 @@ require "chart_week.php";
             <span class="bar"></span>
         </div>
     </header>
+    <form action="" method="post" class="calendar">
+    <input type="submit" name="prev" value="&lt">
+    <input type="submit" name="today" value="Dnes">
+    <input type="submit" name="next" value="&gt">
+</form>
   
     <div id="gridContainer">
         <div class="grid">
