@@ -5,6 +5,7 @@ require "connection.php";
 require "variables.php";
 require "chart_month.php";
 
+
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +59,17 @@ require "chart_month.php";
             <span class="bar"></span>
         </div>
     </header>
-   
+    <form action="" method="post" class="calendar">
+    <input type="submit" name="prev" value="&lt">
+    <input type="submit" name="today" value="Dnes">
+    <input type="submit" name="next" value="&gt">
+</form>
+    <!--
+    <div class="calendar">
+        <button type="submit" id="prev" name="prev">&lt; Předchozí měsíc</button>
+        <button type="submit" id="next" name="next">Následující měsic &gt;</button>
+    </div>
+-->
     <div id="gridContainer">
         <div class="grid">
             <div id="title">Teplota uvnitř:</div>
@@ -89,5 +100,6 @@ require "chart_month.php";
     </div>
 
 <script src="../javaScript/graphs.js"></script>
+<!-- <script src="../javaScript/month_calendar.js"></script> -->
 </body>
 </html>
