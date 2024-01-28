@@ -150,8 +150,6 @@ header {
     display: grid;
     margin: 20px;
     gap: 20px;
-
-
 }
 
 .grid {
@@ -177,6 +175,12 @@ header {
     }
     .navItem a {
         font-size: 20px;
+    }
+    .calendar {
+        top: 15%;
+    }
+    #gridContainer {
+        top: 10%;
     }
 }
 
