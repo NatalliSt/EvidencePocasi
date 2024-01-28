@@ -1,3 +1,7 @@
+<?php
+require_once "session.php";
+require "today_calendar.php";
+?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -13,7 +17,7 @@
 
     function drawInChart() {
         <?php
-        $in_today_sql = "select cur_time, temp_in from data_ep where users_id = '$users_id' and cur_date = curdate();";
+        $in_today_sql = "select cur_time, temp_in from data_ep where users_id = '$users_id' and cur_day = $day and cur_year = $year";
         $in_today_qry = mysqli_query($con, $in_today_sql);
 
         // Check if there is data available
@@ -58,7 +62,7 @@
 
     function drawOutChart() {
         <?php
-        $out_today_sql = "select cur_time, temp_out from data_ep where users_id = '$users_id' and cur_date = curdate();";
+        $out_today_sql = "select cur_time, temp_out from data_ep where users_id = '$users_id' and cur_day = $day and cur_year = $year;";
         $out_today_qry = mysqli_query($con, $out_today_sql);
 
         // Check if there is data available
@@ -100,7 +104,7 @@
 
          function drawPressChart() {
             <?php
-        $press_today_sql = "select cur_time, pressure from data_ep where users_id = '$users_id' and cur_date = curdate();";
+        $press_today_sql = "select cur_time, pressure from data_ep where users_id = '$users_id' and cur_day = $day and cur_year = $year;";
         $press_today_qry = mysqli_query($con, $press_today_sql);
 
         // Check if there is data available
@@ -143,7 +147,7 @@
 
         function drawHumChart() {
             <?php
-        $hum_today_sql = "select cur_time, humidity from data_ep where users_id = '$users_id' and cur_date = curdate();";
+        $hum_today_sql = "select cur_time, humidity from data_ep where users_id = '$users_id' and cur_day = $day and cur_year = $year;";
         $hum_today_qry = mysqli_query($con, $hum_today_sql);
 
         // Check if there is data available
@@ -186,7 +190,7 @@
         
         function drawWindChart() {
             <?php
-        $wind_today_sql = "select cur_time, wind from data_ep where users_id = '$users_id' and cur_date = curdate();";
+        $wind_today_sql = "select cur_time, wind from data_ep where users_id = '$users_id' and cur_day = $day and cur_year = $year;";
         $wind_today_qry = mysqli_query($con, $wind_today_sql);
 
         // Check if there is data available
@@ -229,7 +233,7 @@
 
         function drawRainChart() {
             <?php
-        $rain_today_sql = "select cur_time, rainfall from data_ep where users_id = '$users_id' and cur_date = curdate();";
+        $rain_today_sql = "select cur_time, rainfall from data_ep where users_id = '$users_id' and cur_day = $day and cur_year = $year;";
         $rain_today_qry = mysqli_query($con, $rain_today_sql);
 
 
