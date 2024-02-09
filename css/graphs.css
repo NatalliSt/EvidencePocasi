@@ -39,7 +39,7 @@ header {
 
 .logo {
     margin-top: 0px;
-    margin-left: 50px;
+    margin-left: 60px;
     font-size: 50px;
     font-weight: bolder;
     color: white;
@@ -58,28 +58,21 @@ header {
     top: 0px;
     left: 10px;
 }
-
+/*
 .navBar {
     visibility: hidden;
+} */
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navMenu {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content:center;
-    position: absolute;
-    /* background: transparent;
-    backdrop-filter: blur(50px); */
-    /* border: 2px solid darkgray; */
-    background-color: black;
-    border: 1px 0 solid white;
-    width: 30%;
-    height: 75vh;
-    top: 100px;
-    right: 0;
-    z-index: 100;
-    box-shadow: -5px 10px 20px rgb(40, 40, 40);
 }
 
 .navItem {
@@ -87,13 +80,12 @@ header {
 }
 
 .navItem a {
-    display: block;
+    display: inline;
     color: white;
     text-transform: uppercase;
     font-size: 30px;
     padding: 10px 10px;
      /* transition: 0.5px; */
-    margin: 0 10px;
 }
 
 .navItem a.active, a:hover {
@@ -112,9 +104,8 @@ header {
 }
 
  .hamburger {
-    display: block;
+    display: none;
 }
-
 
 /*
     obsah - grafy - dnes
@@ -169,6 +160,51 @@ header {
     font-weight: lighter;
 }
 
+
+
+@media only screen and (max-width: 1580px) {
+    .logo {
+        font-size: 50px;
+       /* margin-top: 8%; */
+    }
+    #title {
+        font-size: 20px;
+    }
+    #content {
+        font-size: 40px;
+    }
+    .image {
+        height: 100px;
+    }
+    .hamburger {
+        display: block;
+    }
+    .bar {
+        width: 40px;
+        height: 5px;
+        margin: 5px;
+    }
+    .navBar {
+        visibility: hidden;
+    }
+    .navMenu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        background-color: black;
+        border: 1px 0 solid white;
+        width: 30%;
+        height: 75vh;
+        top: 100px;
+        right: 0;
+        z-index: 100;
+        box-shadow: -5px 10px 20px rgb(40, 40, 40);
+        gap: 30px;
+    }
+}
+
 @media only screen and (max-height: 750px) {
     .navMenu {
         overflow: auto;
@@ -192,4 +228,65 @@ header {
 }
 #tempIn {
     color: white;
+}
+
+
+
+/*
+    formulář
+*/
+
+.form {
+    position:relative;
+    top: 7%;
+}
+#newDataForm {
+   /* visibility: hidden; */
+    position: fixed;
+    top: 15%;
+    right: 50%;
+  }
+
+.input {
+    height: 60px;
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    font-size: x-large;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border: black;
+}
+
+.label {
+    position: relative;
+    top: 15px;
+    left: -200px;
+    font-size: 200%;
+}
+
+form p {
+    margin: 40px;
+}
+
+/* tlačitko pro přidání dat */
+
+#back {
+    height: fit-content;
+    width: fit-content;
+    margin: 1%;
+    top: 110px;
+    position: fixed;
+    left: 0vw;
+    padding: 10px 20px 10px 20px;
+    font-size: larger;
+    font-weight: 500;
+    background-color: black;
+    color: white;
+    box-shadow: 5px 5px 15px rgb(40, 40, 40);
+}
+
+#OK {
+    box-shadow: 5px 5px 15px rgb(40, 40, 40);
 }

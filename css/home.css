@@ -38,7 +38,8 @@ header {
 }
 
 .logo {
-    margin-top: 20px;
+    margin-top: 0px;
+    margin-left: 120px;
     font-size: 50px;
     font-weight: bolder;
     color: white;
@@ -53,30 +54,25 @@ header {
 
 .image {
     height: 100px;
-    position: relative;
+    position: absolute;
+    top: 0px;
+    left: 10px;
 }
-
+/*
 .navBar {
     visibility: hidden;
+} */
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navMenu {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content:center;
-    position: absolute;
-    /* background: transparent;
-    backdrop-filter: blur(50px); */
-    /* border: 2px solid darkgray; */
-    background-color: black;
-    border: 1px 0 solid white;
-    width: 30%;
-    height: 75vh;
-    top: 100px;
-    right: 0;
-    z-index: 100;
-    box-shadow: -5px 10px 20px rgb(40, 40, 40);
 }
 
 .navItem {
@@ -84,13 +80,12 @@ header {
 }
 
 .navItem a {
-    display: block;
+    display: inline;
     color: white;
     text-transform: uppercase;
     font-size: 30px;
     padding: 10px 10px;
      /* transition: 0.5px; */
-    margin: 0 10px;
 }
 
 .navItem a.active, a:hover {
@@ -109,7 +104,7 @@ header {
 }
 
  .hamburger {
-    display: block;
+    display: none;
 }
 
 /*
@@ -123,13 +118,13 @@ header {
 #newDataForm {
    /* visibility: hidden; */
     position: absolute;
-    top: 10%;
+    top: 5%;
     right: 50%;
   }
 
 .input {
-    height: 80px;
-    width: 300px;
+    height: 60px;
+    width: 200px;
     position: absolute;
     left: 50%;
     font-size: x-large;
@@ -141,13 +136,13 @@ header {
 
 .label {
     position: relative;
-    top: 25px;
+    top: 15px;
     left: -200px;
     font-size: 200%;
 }
 
 form p {
-    margin: 60px;
+    margin: 40px;
 }
 
 /* tlačitko pro přidání dat */
@@ -156,7 +151,6 @@ form p {
     height: fit-content;
     width: fit-content;
     margin: 1%;
-    
     padding: 10px 20px 10px 20px;
     font-size: larger;
     font-weight: 500;
@@ -211,10 +205,10 @@ form p {
 
 
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1580px) {
     .logo {
-        font-size: 30px;
-        margin-top: 8%;
+        font-size: 50px;
+       /* margin-top: 8%; */
     }
     #title {
         font-size: 20px;
@@ -223,12 +217,34 @@ form p {
         font-size: 40px;
     }
     .image {
-        height: 80px;
+        height: 100px;
+    }
+    .hamburger {
+        display: block;
     }
     .bar {
         width: 40px;
         height: 5px;
         margin: 5px;
+    }
+    .navBar {
+        visibility: hidden;
+    }
+    .navMenu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        background-color: black;
+        border: 1px 0 solid white;
+        width: 30%;
+        height: 75vh;
+        top: 100px;
+        right: 0;
+        z-index: 100;
+        box-shadow: -5px 10px 20px rgb(40, 40, 40);
+        gap: 30px;
     }
 }
 
