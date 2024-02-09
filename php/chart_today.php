@@ -17,7 +17,7 @@ require "today_calendar.php";
 
     function drawInChart() {
         <?php
-        $in_today_sql = "select timeNumber, temp_in from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and temp_in != -1000";
+        $in_today_sql = "select timeNumber, temp_in from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and temp_in != -1000 order by timeNumber asc";
         $in_today_qry = mysqli_query($con, $in_today_sql);
 
         // Check if there is data available
@@ -62,7 +62,7 @@ require "today_calendar.php";
 
     function drawOutChart() {
         <?php
-        $out_today_sql = "select timeNumber, temp_out from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and temp_out != -1000;";
+        $out_today_sql = "select timeNumber, temp_out from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and temp_out != -1000 order by timeNumber asc;";
         $out_today_qry = mysqli_query($con, $out_today_sql);
 
         // Check if there is data available
@@ -104,7 +104,7 @@ require "today_calendar.php";
 
          function drawPressChart() {
             <?php
-        $press_today_sql = "select timeNumber, pressure from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and pressure != -1000;";
+        $press_today_sql = "select timeNumber, pressure from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and pressure != -1000 order by timeNumber asc;";
         $press_today_qry = mysqli_query($con, $press_today_sql);
 
         // Check if there is data available
@@ -147,7 +147,7 @@ require "today_calendar.php";
 
         function drawHumChart() {
             <?php
-        $hum_today_sql = "select timeNumber, humidity from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and humidity != -1000;";
+        $hum_today_sql = "select timeNumber, humidity from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and humidity != -1000 order by timeNumber asc;";
         $hum_today_qry = mysqli_query($con, $hum_today_sql);
 
         // Check if there is data available
@@ -190,7 +190,7 @@ require "today_calendar.php";
         
         function drawWindChart() {
             <?php
-        $wind_today_sql = "select timeNumber, wind from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and wind != -1000;";
+        $wind_today_sql = "select timeNumber, wind from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and wind != -1000 order by timeNumber asc;";
         $wind_today_qry = mysqli_query($con, $wind_today_sql);
 
         // Check if there is data available
@@ -233,7 +233,7 @@ require "today_calendar.php";
 
         function drawRainChart() {
             <?php
-        $rain_today_sql = "select timeNumber, rainfall from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and rainfall != -1000;";
+        $rain_today_sql = "select timeNumber, rainfall from data_ep where users_id = '$users_id' and dayNumber = $day and yearNumber = $year and rainfall != -1000 order by timeNumber asc;";
         $rain_today_qry = mysqli_query($con, $rain_today_sql);
 
 

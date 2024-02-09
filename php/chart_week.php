@@ -16,7 +16,7 @@ require "week_calendar.php";
 
     function drawInChart() {
         <?php
-        $in_week_sql = "select dateNumber, temp_in from data_ep where users_id = '$users_id' and weekNumber = $week and yearNumber = $year and temp_in != -1000;";
+        $in_week_sql = "select dateNumber, temp_in from data_ep where users_id = '$users_id' and weekNumber = $week and yearNumber = $year and temp_in != -1000 order by dateNumber asc;";
         $in_week_qry = mysqli_query($con, $in_week_sql);
 
         // Check if there is data available
@@ -61,7 +61,7 @@ require "week_calendar.php";
 
     function drawOutChart() {
         <?php
-        $out_week_sql = "select dateNumber, temp_out from data_ep where users_id = '$users_id' and weekNumber = $week and yearNumber = $year and temp_out != -1000;";
+        $out_week_sql = "select dateNumber, temp_out from data_ep where users_id = '$users_id' and weekNumber = $week and yearNumber = $year and temp_out != -1000 order by dateNumber asc;";
         $out_week_qry = mysqli_query($con, $out_week_sql);
         // Check if there is data available
         if (mysqli_num_rows($out_week_qry) > 0) {
@@ -103,7 +103,7 @@ require "week_calendar.php";
 
          function drawPressChart() {
             <?php
-            $press_week_sql = "select dateNumber, pressure from data_ep where users_id = '$users_id' and weekNumber = $week and yearNumber = $year and pressure != -1000;";
+            $press_week_sql = "select dateNumber, pressure from data_ep where users_id = '$users_id' and weekNumber = $week and yearNumber = $year and pressure != -1000 order by dateNumber asc;";
             $press_week_qry = mysqli_query($con, $press_week_sql);
             // Check if there is data available
             if (mysqli_num_rows($press_week_qry) > 0) {
@@ -146,7 +146,7 @@ require "week_calendar.php";
 
         function drawHumChart() {
             <?php
-            $hum_week_sql = "select dateNumber, humidity from data_ep where users_id = '$users_id' and weekNumber =  $week and yearNumber = $year and humidity != -1000;";
+            $hum_week_sql = "select dateNumber, humidity from data_ep where users_id = '$users_id' and weekNumber =  $week and yearNumber = $year and humidity != -1000 order by dateNumber asc;";
             $hum_week_qry = mysqli_query($con, $hum_week_sql);
             // Check if there is data available
             if (mysqli_num_rows($hum_week_qry) > 0) {
@@ -188,7 +188,7 @@ require "week_calendar.php";
         
         function drawWindChart() {
         <?php
-            $wind_week_sql = "select dateNumber, wind from data_ep where users_id = '$users_id' and weekNumber =  $week and yearNumber = $year and wind != -1000;";
+            $wind_week_sql = "select dateNumber, wind from data_ep where users_id = '$users_id' and weekNumber =  $week and yearNumber = $year and wind != -1000 order by dateNumber asc;";
             $wind_week_qry = mysqli_query($con, $wind_week_sql);
             // Check if there is data available
             if (mysqli_num_rows($wind_week_qry) > 0) {
@@ -232,7 +232,7 @@ require "week_calendar.php";
 
         function drawRainChart() {
             <?php
-            $rain_week_sql = "select dateNumber, rainfall from data_ep where users_id = '$users_id' and weekNumber =  $week and yearNumber = $year and rainfall != -1000;";
+            $rain_week_sql = "select dateNumber, rainfall from data_ep where users_id = '$users_id' and weekNumber =  $week and yearNumber = $year and rainfall != -1000 order by dateNumber asc;";
             $rain_week_qry = mysqli_query($con, $rain_week_sql);
             // Check if there is data available
             if (mysqli_num_rows($rain_week_qry) > 0) {

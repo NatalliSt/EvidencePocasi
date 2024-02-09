@@ -109,7 +109,7 @@ require "chart_week.php";
         <input type="date('YYYY-mm-dd')" id="date"  name="date" class="input" placeholder="YYYY-MM-DD"></input>
     </p>
     <p>
-        <label for="time" class="label">Datum:</label>
+        <label for="time" class="label">Čas:</label>
         <input type="time('H:i:s')" id="time"  name="time" class="input" placeholder="HH:MM:SS"></input>
     </p>
     <p>
