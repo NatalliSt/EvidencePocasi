@@ -22,7 +22,7 @@ require "month_calendar.php";
 
     function drawInChart() {
         <?php
-        $in_month_sql = "select cur_date, temp_in from data_ep where users_id = '$users_id' and cur_month = $month and cur_year = $year;";
+        $in_month_sql = "select dateNumber, temp_in from data_ep where users_id = '$users_id' and monthNumber = $month and yearNumber = $year and temp_in != -1000;";
         $in_month_qry = mysqli_query($con, $in_month_sql);
         // Check if there is data available
         if (mysqli_num_rows($in_month_qry) > 0) {
@@ -33,7 +33,7 @@ require "month_calendar.php";
 
             <?php
                 while($in_month_row = mysqli_fetch_assoc($in_month_qry)) {
-                    $in_date = $in_month_row['cur_date'];
+                    $in_date = $in_month_row['dateNumber'];
                     $in_temperature = $in_month_row['temp_in'];
                 ?>
                 
@@ -66,7 +66,7 @@ require "month_calendar.php";
 
     function drawOutChart() {
         <?php
-        $out_month_sql = "select cur_date, temp_out from data_ep where users_id = '$users_id' and cur_month = $month and cur_year = $year;";
+        $out_month_sql = "select dateNumber, temp_out from data_ep where users_id = '$users_id' and monthNumber = $month and yearNumber = $year and temp_out != -1000;";
         $out_month_qry = mysqli_query($con, $out_month_sql);
         // Check if there is data available
         if (mysqli_num_rows($out_month_qry) > 0) {
@@ -77,7 +77,7 @@ require "month_calendar.php";
 
             <?php
                 while($out_month_row = mysqli_fetch_assoc($out_month_qry)) {
-                    $out_date = $out_month_row['cur_date'];
+                    $out_date = $out_month_row['dateNumber'];
                     $out_temperature = $out_month_row['temp_out'];
                 ?>
                 
@@ -108,7 +108,7 @@ require "month_calendar.php";
 
          function drawPressChart() {
             <?php
-    $press_month_sql = "select cur_date, pressure from data_ep where users_id = '$users_id' and cur_month = $month and cur_year = $year;";
+    $press_month_sql = "select dateNumber, pressure from data_ep where users_id = '$users_id' and monthNumber = $month and yearNumber = $year and pressure != -1000;";
     $press_month_qry = mysqli_query($con, $press_month_sql);
             // Check if there is data available
         if (mysqli_num_rows($press_month_qry) > 0) {
@@ -119,7 +119,7 @@ require "month_calendar.php";
 
             <?php
                 while($press_month_row = mysqli_fetch_assoc($press_month_qry)) {
-                    $press_date = $press_month_row['cur_date'];
+                    $press_date = $press_month_row['dateNumber'];
                     $pressure = $press_month_row['pressure'];
                 ?>
                 
@@ -151,7 +151,7 @@ require "month_calendar.php";
 
         function drawHumChart() {
         <?php
-            $hum_month_sql = "select cur_date, humidity from data_ep where users_id = '$users_id' and cur_month = $month and cur_year = $year;";
+            $hum_month_sql = "select dateNumber, humidity from data_ep where users_id = '$users_id' and monthNumber = $month and yearNumber = $year and humidity != -1000;";
             $hum_month_qry = mysqli_query($con, $hum_month_sql);
             // Check if there is data available
         if (mysqli_num_rows($hum_month_qry) > 0) {
@@ -163,7 +163,7 @@ require "month_calendar.php";
             <?php
 
                 while($hum_month_row = mysqli_fetch_assoc($hum_month_qry)) {
-                    $hum_date = $hum_month_row['cur_date'];
+                    $hum_date = $hum_month_row['dateNumber'];
                     $humidity = $hum_month_row['humidity'];
                 ?>
                 
@@ -195,7 +195,7 @@ require "month_calendar.php";
         
         function drawWindChart() {
             <?php
-                $wind_month_sql = "select cur_date, wind from data_ep where users_id = '$users_id' and cur_month = $month and cur_year = $year;";
+                $wind_month_sql = "select dateNumber, wind from data_ep where users_id = '$users_id' and monthNumber = $month and yearNumber = $year and wind != -1000;";
                 $wind_month_qry = mysqli_query($con, $wind_month_sql);
                 // Check if there is data available
         if (mysqli_num_rows($wind_month_qry) > 0) {
@@ -206,7 +206,7 @@ require "month_calendar.php";
 
             <?php
                 while($wind_month_row = mysqli_fetch_assoc($wind_month_qry)) {
-                    $wind_date = $wind_month_row['cur_date'];
+                    $wind_date = $wind_month_row['dateNumber'];
                     $wind = $wind_month_row['wind'];
                 ?>
                 
@@ -238,7 +238,7 @@ require "month_calendar.php";
 
         function drawRainChart() {
             <?php
-                $rain_month_sql = "select cur_date, rainfall from data_ep where users_id = '$users_id' and cur_month = $month and cur_year = $year;";
+                $rain_month_sql = "select dateNumber, rainfall from data_ep where users_id = '$users_id' and monthNumber = $month and yearNumber = $year and rainfall != -1000;";
                 $rain_month_qry = mysqli_query($con, $rain_month_sql);
             // Check if there is data available
         if (mysqli_num_rows($rain_month_qry) > 0) {
@@ -249,7 +249,7 @@ require "month_calendar.php";
 
             <?php
                 while($rain_month_row = mysqli_fetch_assoc($rain_month_qry)) {
-                    $rain_date = $rain_month_row['cur_date'];
+                    $rain_date = $rain_month_row['dateNumber'];
                     $rain = $rain_month_row['rainfall'];
                 ?>
                 

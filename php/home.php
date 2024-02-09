@@ -24,6 +24,7 @@ require_once "variables.php";
             <div class="logo"><a href="home.php" style="color: white; border: 0; box-shadow: 0 0 0">EVIDENCE POČASÍ</a></div>
         </div>
 
+        <!-- menu -->
         <nav class="navBar">
             <ul class="navMenu">
                 <li class="navItem">
@@ -44,6 +45,9 @@ require_once "variables.php";
                     <a href="month.php" class="navLink">Měsíc</a>
                 </li>
                 <li class="navItem">
+                    <a id="newDataLink" class="navLink">Nová data</a>
+                </li>
+                <li class="navItem">
                     <a href="logout.php" class="navLink">Odhlásit se</a>
                 </li>
             
@@ -56,11 +60,20 @@ require_once "variables.php";
         </div>
     </header>
     
+    <!-- forumlář pro přidání dat -->
     <div class="form">
 
     <input id="addData" type="button" value="Přidat nová data"></input>
 
     <form id="newDataForm" method="POST" action="">
+        <p>
+            <label for="date" class="label">Datum:</label>
+            <input type="date('YYYY-mm-dd')" id="date"  name="date" class="input" placeholder="YYYY-MM-DD"></input>
+        </p>
+        <p>
+            <label for="time" class="label">Datum:</label>
+            <input type="time('H:i:s')" id="time"  name="time" class="input" placeholder="HH:MM:SS"></input>
+        </p>
         <p>
             <label for="tempIn" class="label">Teplota uvnitř:</label>
             <input type="float" id="tempIn"  name="tempIn" class="input" placeholder="˚C"></input>
@@ -84,45 +97,76 @@ require_once "variables.php";
         <p>
             <label for="rainfall" class="label">Srážky:</label>
             <input type="float" id="rainfall" name="rainfall" class="input" placeholder="mm/h"></input>
-        </p>
-        <p>
+</p>
+<p>
             <input type="submit" id="submit" value="Uložit" class="input" name="submit">
         </p>
         
         <?php
 
         if(isset($_POST["submit"])) {
-            $tempIn = $_POST["tempIn"];
-            $tempOut = $_POST["tempOut"];
-            $pressure = $_POST["pressure"];
-            $humidity = $_POST["humidity"];
-            $wind = $_POST["wind"];
-            $rainfall = $_POST["rainfall"];
+            if (!empty($_POST["date"]) && !empty($_POST["time"])) {
+                $date = $_POST["date"];
+                $time = $_POST["time"];
+                $dayNumber = date('z', strtotime($date))+1;
+                $weekNumber = date('W', strtotime($date));
+                $monthNumber = date('m', strtotime($date));
+                $yearNumber = date('Y', strtotime($date));
+            } elseif (!empty($_POST["date"])){
+                $date = $_POST["date"];
+                $time = date('H:i:s');
+                $dayNumber = date('z', strtotime($date))+1;
+                $weekNumber = date('W', strtotime($date));
+                $monthNumber = date('m', strtotime($date));
+                $yearNumber = date('Y', strtotime($date));
+            } elseif (!empty($_POST["time"])) {
+                $date = date('Y,m,d');
+                $time = $_POST["time"];
+                $yearNumber = date('Y');
+                $monthNumber = date('m');
+                $weekNumber = date('W'); // vrátí číslo týdne v roce
+                $dayNumber = date('z')+1; // vrátí číslo dne v roce (1-365/366)
+            }
+            else {
+                $date = date('Y,m,d');
+                $time = date('H:i:s');
+                $yearNumber = date('Y');
+                $monthNumber = date('m');
+                $weekNumber = date('W'); // vrátí číslo týdne v roce
+                $dayNumber = date('z')+1; // vrátí číslo dne v roce (1-365/366)
+            }
 
-            $cur_date = date('Y,m,d');
-            $cur_time = date('H:i:s');
+$tempIn = -1000;
+$tempOut = -1000;
+$pressure = -1000;
+$humidity = -1000;
+$wind = -1000;
+$rainfall = -1000;
 
-            $cur_year = date('Y');
-            $cur_month = date('m');
-            $cur_week = date('W'); // vrátí číslo týdne v roce
-            $cur_day = date('z')+1; // vrátí číslo dne v roce (1-365/366)
-             /* <?php
-            setlocale(LC_TIME, 'cs_CZ.utf8'); // Nastavte češtinu pro lokalizaci
-            echo strftime('%a', time()); // Vypsání zkráceného názvu dne v týdnu
-            ?> */
+// Check each input field and update the corresponding variable if it's not empty
+if (!empty($_POST["tempIn"])) {
+    $tempIn = $_POST["tempIn"];
+}
+if (!empty($_POST["tempOut"])) {
+    $tempOut = $_POST["tempOut"];
+}
+if (!empty($_POST["pressure"])) {
+    $pressure = $_POST["pressure"];
+}
+if (!empty($_POST["humidity"])) {
+    $humidity = $_POST["humidity"];
+}
+if (!empty($_POST["wind"])) {
+    $wind = $_POST["wind"];
+}
+if (!empty($_POST["rainfall"])) {
+    $rainfall = $_POST["rainfall"];
+}
 
-            $cur_hour = date('H');
-            $cur_min = date('i');
-            $cur_sec = date('s'); 
+            $sql = "insert into data_ep(users_id, dateNumber, timeNumber, yearNumber, monthNumber, weekNumber, dayNumber, temp_in, temp_out, pressure, humidity, wind, rainfall)" .
+            "values('".$users_id."','".$date."','".$time."','".$yearNumber."','".$monthNumber."', '".$weekNumber."', '".$dayNumber."', '".$tempIn."', '".$tempOut."', '".$pressure."', '".$humidity."', '".$wind."', '".$rainfall."')";
             
-            
-            $sql = "insert into data_ep(users_id, cur_date, cur_time, cur_year, cur_month, cur_week, cur_day, cur_hour, cur_min, cur_sec, temp_in, temp_out, pressure, humidity, wind, rainfall)" .
-            "values('".$users_id."','".$cur_date."','".$cur_time."','".$cur_year."','".$cur_month."', '".$cur_week."', '".$cur_day."','".$cur_hour."','".$cur_min."','".$cur_sec."', '".$tempIn."', '".$tempOut."', '".$pressure."', '".$humidity."', '".$wind."', '".$rainfall."')";
-    
-            /*
-            $sql = "insert into data_ep(users_id, cur_date, cur_time, temp_in, temp_out, pressure, humidity, wind, rainfall)" .
-            "values('".$users_id."', '".$cur_date."','".$cur_time."','".$tempIn."', '".$tempOut."', '".$pressure."', '".$humidity."', '".$wind."', '".$rainfall."')";
-            */
+
 
             if(mysqli_query($con, $sql)) {
                 echo "<script> alert('Data byla uložena'); window.location.href='home.php'</script>";
@@ -136,17 +180,22 @@ require_once "variables.php";
         ?>
 
     </form>
+
+    <!-- zobrazení nejnovějších dat -->
   
     <div id="gridContainer">
 
         <div class="grid" id="tempIn">
             <p id='title'>Teplota uvnitř:</p>
             <?php
-                if ($in_row > 0) {
-                    echo "<p id='content'>" . $in . " ˚C </p> " . BR;
-                    echo "<p id='time'>" . $time ."</p>";
+                if ($in_row) {
+                    if ($in != -1000) {
+                        echo "<p id='content'>" . $in . " ˚C </p> " . BR;
+                    echo "<p id='time'>" . $datetime ."</p>";
+                    }
                 } else {
                     echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
+                    echo $time;
                 }
             ?>
         </div>
@@ -155,8 +204,12 @@ require_once "variables.php";
             <p id='title'>Teplota venku:</p>
             <?php
                 if ($out_row) {
-                    echo "<p id='content'>" . $out .  " ˚C </p>" . BR;
-                    echo "<p id='time'>" . $time ."</p>";
+                    if ($out != -1000) {
+                        echo "<p id='content'>" . $out .  " ˚C </p>" . BR;
+                        echo "<p id='time'>" . $datetime ."</p>";
+                    } else {
+                        echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
+                    } 
                 } else {
                     echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
@@ -167,8 +220,12 @@ require_once "variables.php";
             <p id='title'>Atmosferický tlak:</p>
             <?php
                 if ($press_row) {
-                    echo "<p id='content'>" . $press . " hPa <p>" . BR;  
-                    echo "<p id='time'>" . $time ."</p>";
+                    if ($press != -1000) {
+                        echo "<p id='content'>" . $press . " hPa <p>" . BR;  
+                        echo "<p id='time'>" . $datetime ."</p>";
+                    } else {
+                        echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
+                    }
                 } else {
                     echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
@@ -179,8 +236,12 @@ require_once "variables.php";
             <p id='title'>Vlhkost vzduchu:</p>
             <?php
                 if ($humid_row) {
-                    echo "<p id='content'>" . $humid . " % </p>" . BR;  
-                    echo "<p id='time'>" . $time ."</p>";
+                    if ($humid != -1000) {
+                        echo "<p id='content'>" . $humid . " % </p>" . BR;  
+                        echo "<p id='time'>" . $datetime ."</p>";
+                    } else {
+                        echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
+                    }                    
                 } else {
                     echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
@@ -191,8 +252,12 @@ require_once "variables.php";
             <p id='title'>Vítr:</p>
             <?php
                 if ($wind_row) {
-                    echo "<p id='content'>" . $wind . " m/s </p>" . BR; 
-                    echo "<p id='time'>" . $time ."</p>"; 
+                    if ($wind != -1000) {
+                        echo "<p id='content'>" . $wind . " m/s </p>" . BR; 
+                        echo "<p id='time'>" . $datetime ."</p>"; 
+                    } else {
+                        echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
+                    }                    
                 } else {
                     echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
@@ -203,8 +268,12 @@ require_once "variables.php";
             <p id='title'>Srážky:</p>
             <?php    
                 if ($rain_row) {
-                    echo "<p id='content'>". $rain. " mm/h </p>" . BR;
-                    echo "<p id='time'>" . $time ."</p>";
+                    if ($rain != -1000) {
+                        echo "<p id='content'>". $rain. " mm/h </p>" . BR;
+                        echo "<p id='time'>" . $datetime ."</p>";
+                    } else {
+                        echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
+                    }                    
                 } else {
                     echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
