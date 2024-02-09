@@ -21,10 +21,12 @@ hamburger.addEventListener("click", () => {
 */
 
 var btn = document.getElementById("addData");
+var btn2 = document.getElementById("newDataLink");
 
 // const newDataForm = document.getElementById("newData");
 
 btn.addEventListener("click", addNewData);
+btn2.addEventListener("click", addNewData);
 
 const newDataForm = document.getElementById("newDataForm");
 const container = document.getElementById("gridContainer");
