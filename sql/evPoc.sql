@@ -26,31 +26,30 @@ ENGINE = InnoDB;
  -- alter table login 
 -- modify id INT NOT NULL AUTO_INCREMENT unique;
 
-drop table if exists data_ep;
+-- drop table if exists data_ep;
 
 CREATE TABLE IF NOT EXISTS data_ep (
 	data_id INT NOT NULL unique auto_increment,
     users_id int,
     created datetime not null default CURRENT_TIMESTAMP,
-    cur_date date not null,
-    cur_time time not null, 
-	cur_year int not null,
-    cur_month int not null,
-    cur_week int not null,
-    cur_day int not null,
-    cur_hour int not null,
-    cur_min int not null,
-    cur_sec int not null,
-	temp_in float not null,
-    temp_out float not null,
-	pressure float not null,
-	humidity float not null,
-	wind float not null,
-	rainfall float not null,
+    dateNumber date not null,
+    timeNumber time not null, 
+	yearNumber int not null,
+    monthNumber int not null,
+    weekNumber int not null,
+    dayNumber int not null,
+	temp_in float,
+    temp_out float,
+	pressure float,
+	humidity float,
+	wind float,
+	rainfall float,
 	PRIMARY KEY (data_id),
 	FOREIGN KEY (users_id) REFERENCES users (users_id)
   )
 ENGINE = InnoDB;
+
+-- alter table data_ep modify temp_in float null;
 
 -- show tables;
 
