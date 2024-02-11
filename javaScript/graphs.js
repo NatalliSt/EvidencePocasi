@@ -46,7 +46,7 @@ function addNewData () {
         calendar.style.visibility = "hidden";
         newDataForm.style.visibility = "visible";
         container.style.visibility = "hidden";
-        navBar.style.visibility = "hidden";
+        // navBar.style.visibility = "hidden";
        
       //  console.log(newDataForm.style.visibility);
     } else {
