@@ -195,7 +195,6 @@ if (!empty($_POST["rainfall"])) {
                     }
                 } else {
                     echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
-                    echo $time;
                 }
             ?>
         </div>

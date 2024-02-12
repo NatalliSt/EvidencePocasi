@@ -1,6 +1,6 @@
 <?php
 
-require "session.php";
+require_once "session.php";
 require "connection.php";
 require "variables.php";
 require "chart_today.php";

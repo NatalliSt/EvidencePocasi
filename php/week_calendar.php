@@ -1,5 +1,5 @@
 <?php 
-require "session.php";
+require_once "session.php";
 
 if(!isset( $_SESSION["week"] ) ) {
     $_SESSION["week"]= date('W');
