@@ -76,27 +76,27 @@ require_once "variables.php";
         </p>
         <p>
             <label for="tempIn" class="label">Teplota uvnitř:</label>
-            <input type="number" id="tempIn"  name="tempIn" class="input" placeholder="˚C"></input>
+            <input type="float" id="tempIn"  name="tempIn" class="input" placeholder="˚C"></input>
         </p>
         <p>
             <label for="tempOut" class="label">Teplota venku:</label>
-            <input type="number" id="tempOut"  name="tempOut" class="input" placeholder="˚C"></input>
+            <input type="float" id="tempOut"  name="tempOut" class="input" placeholder="˚C"></input>
         </p>
         <p>
             <label for="pressure" class="label">Atmosferický tlak:</label>
-            <input type="number" id="pressure" name="pressure" class="input" placeholder="hPa"></input>
+            <input type="float" id="pressure" name="pressure" class="input" placeholder="hPa"></input>
         </p>
         <p>
             <label for="humidity" class="label">Vlhkost vzduchu:</label>
-            <input type="number" id="humidity" name="humidity" class="input" placeholder="%"></input>
+            <input type="float" id="humidity" name="humidity" class="input" placeholder="%"></input>
         </p>
         <p>
         <label for="wind" class="label">Vítr:</label>
-        <input type="number" id="wind" name="wind" class="input" placeholder="m/s"></input>
+        <input type="float" id="wind" name="wind" class="input" placeholder="m/s"></input>
         </p>
         <p>
             <label for="rainfall" class="label">Srážky:</label>
-            <input type="number" id="rainfall" name="rainfall" class="input" placeholder="mm/h"></input>
+            <input type="float" id="rainfall" name="rainfall" class="input" placeholder="mm/h"></input>
 </p>
 <p>
             <input type="submit" id="submit" value="Uložit" class="input" name="submit">
