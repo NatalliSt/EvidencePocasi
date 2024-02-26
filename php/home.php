@@ -192,10 +192,12 @@ if (!empty($_POST["rainfall"])) {
                     if ($in != -1000) {
                         echo "<p id='content'>" . $in . " ˚C </p> " . BR;
                     echo "<p id='time'>" . $datetime ."</p>";
-                    }
-                } else {
+                    } else {
                     echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
                 }
+            } else {
+                echo "<p>Nejsou k dispozici žádné hodnoty.</p>";
+            }
             ?>
         </div>
 
