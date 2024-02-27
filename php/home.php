@@ -145,27 +145,27 @@ $rainfall = -1000;
 // print_r($_POST);
 //exit;
 // Check each input field and update the corresponding variable if it's not empty
-if (!empty($_POST["tempIn"]) || $_POST["tempIn"]==0) {
+if (!empty($_POST["tempIn"]) || $_POST["tempIn"] === '0') {
     $tempIn = $_POST["tempIn"];
 }
-if (!empty($_POST["tempOut"]) || $_POST["tempOut"]==0) {
+if (!empty($_POST["tempOut"]) || $_POST["tempOut"] === '0') {
     $tempOut = $_POST["tempOut"]; 
 }
-if (!empty($_POST["pressure"]) || $_POST["pressure"]==0) {
+if (!empty($_POST["pressure"]) || $_POST["pressure"] === '0') {
     $pressure = $_POST["pressure"];
 }
-if (!empty($_POST["humidity"]) || $_POST["humidity"]==0) {
+if (!empty($_POST["humidity"]) || $_POST["humidity"] === '0') {
     $humidity = $_POST["humidity"];
 }
-if (!empty($_POST["wind"]) || $_POST["wind"]==0) {
+if (!empty($_POST["wind"]) || $_POST["wind"] === '0') {
     $wind = $_POST["wind"];
 }
-if (!empty($_POST["rainfall"]) || $_POST["rainfall"]==0) {
+if (!empty($_POST["rainfall"]) || $_POST["rainfall"] === '0') {
     $rainfall = $_POST["rainfall"];
 }
 
 $sql = "insert into data_ep(users_id, dateNumber, timeNumber, yearNumber, monthNumber, weekNumber, dayNumber, temp_in, temp_out, pressure, humidity, wind, rainfall)" .
-"values('".$users_id."','".$date."','".$time."','".$yearNumber."','".$monthNumber."', '".$weekNumber."', '".$dayNumber."', '".$tempIn."', ".$tempOut.", '".$pressure."', '".$humidity."', '".$wind."', '".$rainfall."')";
+"values('".$users_id."','".$date."','".$time."','".$yearNumber."','".$monthNumber."', '".$weekNumber."', '".$dayNumber."', '".$tempIn."', '".$tempOut."', '".$pressure."', '".$humidity."', '".$wind."', '".$rainfall."')";
             
 // error_log($sql);
 
